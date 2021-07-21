@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
+@import "scss/fontawesome.scss";
+@import "scss/solid.scss";
+
+@import "./utils/variables";
+@import "./utils/mixins";
+@import "./utils/functions";
+@import "./layout/header";
+@import "./layout/nav";
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, serif;
+}
+
+header {
+    color: $neutral-color-500;
+    display: flex;
+    align-items: baseline;
+    & .return-to-index {
+        margin: 0.5rem 1rem;
+        & a {
+            text-decoration-line: none;
+            color: $neutral-color-500;
+        }
+    }
+    & .logo {
+        margin: 0.5rem auto;
+        font-size: 2.5rem;
+        font-family: Shrikhand;
+    }
+}
+
+section {
+    background-color: lighten($neutral-color-200, 5%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    & .image {
+        background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 20rem;
+        z-index: -1;
+    }
+    & .menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        padding: 1rem 1rem;
+        margin-top: -25px;
+        border-radius: 5rem 5rem 0 0;
+        transform: translateY(-5%);
+        & h2 {
+            font-family: Shrikhand;
+            margin: 1rem 1rem;
+        }
+        & h3 {
+           text-transform: uppercase;
+           font-weight: 400;
+           font-size: 1rem;
+           margin: 1rem 1rem;
+           width: 8%;
+           padding-bottom: 0.5rem;
+           border-bottom: 0.25rem solid $tertiary-color;
+        }
+        & .starter, & .main-course, & .dessert {
+            color: $neutral-color-500;
+            border-radius: 1rem;
+            background-color: $neutral-color-100;
+            padding: 1rem 1rem;
+            margin: 0.5rem 0.5rem;
+            box-shadow: 0.3rem 0.3rem 0.15rem $neutral-color-300;
+            & :hover {
+                cursor: pointer;
+            }
+            & .details {
+                display: flex;
+                align-items: baseline;
+                & .precision {
+                    margin: 0 2rem 0 0;
+                }
+                & .price {
+                    margin: 0 0 0 auto;
+                }
+            }
+        }
+        & button {
+            color: $neutral-color-100;
+            background-image: linear-gradient($secondary-color, $primary-color);
+            border-radius: 5rem;  
+            padding: 0.8rem 0.8rem;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            margin: 1.5rem auto;
+            box-shadow: 0.3rem 0.3rem 0.15rem $neutral-color-300;
+            & :hover {
+                cursor: pointer; /*à revoir*/
+            }
+        }
+    }
+}
+
+.text_choose {
+    display: none;
+    width: 5rem;
+    height: 5rem;
+    position: relative;
+    background-color:$tertiary-color;
+    & :hover {
+        display: flex-end;
+        animation: apparition 3s;
+    }
+}
+
+@keyframes apparition {
+    0% {
+        right: 0px;
+        transform: scale(0);
+        background-color: $neutral-color-100;
+    }
+    50% {
+        right: 5px;
+        transform: scale(0.5);
+        background-color:$tertiary-color;
+    }
+    100% {
+        right: 10px;
+        transform : scale(1);
+        background-color:$tertiary-color;
+    }
+}
+
+.precision, .price {
+    display: flex;
+
+}
+.title, .price {
+    font-weight: 700;
+}
+
+footer {
+    background: $neutral-color-500;
+    color: $neutral-color-100;
+    padding: 1rem 1rem;
+    & .logo {
+        color: $neutral-color-100;
+        font-size: 1rem;
+        font-family: Shrikhand;
+        line-height: 2.5;
+    }
+    & ul li  {
+        list-style: none;
+        line-height: 1.5;
+        & a {
+            text-decoration-line: none;
+            color: $neutral-color-100;
+        }
+    }
+}
