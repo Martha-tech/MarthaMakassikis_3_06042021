@@ -5,8 +5,9 @@
 @import "./utils/variables";
 //@import "./utils/mixins";
 //@import "./utils/functions";
-//@import "./layout/header";
-//@import "./layout/nav";
+@import "./layout/header";
+@import "./layout/nav";
+@import "./layout/footer";
 
 * {
     box-sizing: border-box;
@@ -27,33 +28,45 @@ body {
     color: $neutral-color-500;
 }
 
-header {
-    color: $neutral-color-500;
-    & .logo {
-        display: flex;
-        justify-content: center;
-        font-size: 2.5rem;
-        font-family: Shrikhand; /*ajouter 2e police*/
+.spinner {
+    color: $primary-color;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale (3, 0.5);
+    animation: disappearance 1s 2s forwards;
+    &:hover {
+        color: $neutral-color-400;
+        transition: 1s;
     }
 }
 
-footer {
-    background: $neutral-color-500;
-    color: $neutral-color-100;
-    padding: 1rem 1rem;
-    & .logo {
-        color: $neutral-color-100;
-        font-size: 1rem;
-        font-family: Shrikhand; /*ajouter 2e police*/
-        line-height: 2.5;
+.contenu {
+    animation: apparition 1s 2s forwards;
+    opacity: 0;
+}
+
+@keyframes disappearance {
+    from {
+        opacity: 1;
     }
-    & ul li  {
-        list-style: none;
-        line-height: 1.5;
-        & a {
-            text-decoration-line: none;
-            color: $neutral-color-100;
-        }
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes apparition {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
 
@@ -108,7 +121,7 @@ footer {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        width: 50%;
+        width: 100%;
         & h3 {
             line-height: 1;
             margin-bottom: 1rem;
@@ -146,7 +159,9 @@ footer {
         padding: 0.8rem 0.8rem;
         line-height: 1.5rem;
         background-color: $neutral-color-200;
-        width: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
         & h3 {
             display: flex;
             justify-content: left; /*ne fonctionne pas*/
@@ -169,6 +184,9 @@ footer {
                 box-shadow: 0.3rem 0.3rem 0.15rem $neutral-color-300;
                 & .palette-du-gout {
                     background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+                    height: 170px;
+                    border-top-right-radius: 1.5rem;
+                    border-top-left-radius: 1.5rem;
                 }
                 & img {
                     border-radius: 1.5rem 1.5rem 0 0;
@@ -188,8 +206,8 @@ footer {
                 }
                 & .nouveau2 {
                     position: relative;
-                    top: 944px;
-                    right: 96px; /*idem*/
+                    top: 575px;
+                    right: -370px; /*idem*/
                 }
                 & .description {
                     border-radius: 0 0 1.5rem 1.5rem;
@@ -215,41 +233,17 @@ footer {
     }
 }
 
-//loading spinner
-.chargement {
-    //création du loader
-    border-top: 1rem solid $primary-color;
-    border-right: 1rem solid $secondary-color;
-    border-bottom: 1rem solid $tertiary-color;
-    border-left: 1rem solid $neutral-color-200;
-    border-radius: 50%;
-    width: 7rem;
-    height: 7rem;
-    animation: spin 1.5s linear infinite;
-    //placement du loader au milieu de la page
-    margin: auto;
-    position: absolute;
-    top: 0; left: 0; right: 0; left: 0;
-}
-
-@keyframes spin {
-    0% {
-        transform: rotate(0deg);
-
-    }
-    100% {
-        transform : rotate(360deg);
-    }
-}
-
 //responsive
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     .functioning_restaurants {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         & .restaurants {
             display: flex;
             flex-direction: column;
+            & h3 + div {
+                align-items: baseline;
+            }
         }
     }
 }
@@ -257,12 +251,20 @@ footer {
 @media screen and (min-width: 1001px) {
     .functioning_restaurants {
         display: flex;
-        flex-direction: row;
-        & .restaurants {
+        flex-direction: column;
+        & .functioning {
             display: flex;
             flex-direction: row;
+            & div {
+                width: 40%;
+                margin-right: 3rem;
+            }
+        }
+        & .restaurants {
+            display: flex;
             & .cards {
-                width: 100%;
+                width: 50%;
+                flex-direction: row;
                 & .element {
                     width: 40%;
                 }

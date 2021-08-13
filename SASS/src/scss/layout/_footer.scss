@@ -1,0 +1,20 @@
+
+footer {
+    background: $neutral-color-500;
+    color: $neutral-color-100;
+    padding: 1rem 1rem;
+    & .logo {
+        color: $neutral-color-100;
+        font-size: 1rem;
+        font-family: $font-logo-title;
+        line-height: 2.5;
+    }
+    & ul li  {
+        list-style: none;
+        line-height: 1.5;
+        & a {
+            text-decoration-line: none;
+            color: $neutral-color-100;
+        }
+    }
+}

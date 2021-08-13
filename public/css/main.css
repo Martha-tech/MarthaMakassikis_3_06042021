@@ -2,6 +2,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
+header {
+  color: #000;
+  height: 8rem;
+}
+header .logo {
+  display: flex;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-family: Shrikhand, OpenSans, Montserrat, Raleway;
+}
+
+footer {
+  background: #000;
+  color: #fff;
+  padding: 1rem 1rem;
+}
+footer .logo {
+  color: #fff;
+  font-size: 1rem;
+  font-family: Shrikhand, OpenSans, Montserrat, Raleway;
+  line-height: 2.5;
+}
+footer ul li {
+  list-style: none;
+  line-height: 1.5;
+}
+footer ul li a {
+  text-decoration-line: none;
+  color: #fff;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -21,38 +52,46 @@ body {
   color: #000;
 }
 
-header {
-  color: #000;
-}
-header .logo {
+.spinner {
+  color: #9356DC;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
   display: flex;
   justify-content: center;
-  font-size: 2.5rem;
-  font-family: Shrikhand;
-  /*ajouter 2e police*/
+  align-items: center;
+  transform: scale 3, 0.5;
+  animation: disappearance 1s 2s forwards;
+}
+.spinner:hover {
+  color: #c0b7b7;
+  transition: 1s;
 }
 
-footer {
-  background: #000;
-  color: #fff;
-  padding: 1rem 1rem;
-}
-footer .logo {
-  color: #fff;
-  font-size: 1rem;
-  font-family: Shrikhand;
-  /*ajouter 2e police*/
-  line-height: 2.5;
-}
-footer ul li {
-  list-style: none;
-  line-height: 1.5;
-}
-footer ul li a {
-  text-decoration-line: none;
-  color: #fff;
+.contenu {
+  animation: apparition 1s 2s forwards;
+  opacity: 0;
 }
 
+@keyframes disappearance {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes apparition {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .reservation {
   background-color: #e6e3e3c9;
   margin: 0.5rem 0rem;
@@ -106,7 +145,7 @@ footer ul li a {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 50%;
+  width: 100%;
 }
 .functioning_restaurants .functioning h3 {
   line-height: 1;
@@ -144,7 +183,9 @@ footer ul li a {
   padding: 0.8rem 0.8rem;
   line-height: 1.5rem;
   background-color: #e6e3e3c9;
-  width: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 .functioning_restaurants .restaurants h3 {
   display: flex;
@@ -171,6 +212,9 @@ footer ul li a {
 }
 .functioning_restaurants .restaurants .cards .element .palette-du-gout {
   background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
+  height: 170px;
+  border-top-right-radius: 1.5rem;
+  border-top-left-radius: 1.5rem;
 }
 .functioning_restaurants .restaurants .cards .element img {
   border-radius: 1.5rem 1.5rem 0 0;
@@ -191,8 +235,8 @@ footer ul li a {
 }
 .functioning_restaurants .restaurants .cards .element .nouveau2 {
   position: relative;
-  top: 944px;
-  right: 96px;
+  top: 575px;
+  right: -370px;
   /*idem*/
 }
 .functioning_restaurants .restaurants .cards .element .description {
@@ -215,52 +259,38 @@ footer ul li a {
   color: #000;
 }
 
-.chargement {
-  border-top: 1rem solid #9356DC;
-  border-right: 1rem solid #FF79DA;
-  border-bottom: 1rem solid #99E2D0;
-  border-left: 1rem solid #e6e3e3c9;
-  border-radius: 50%;
-  width: 7rem;
-  height: 7rem;
-  animation: spin 1.5s linear infinite;
-  margin: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  left: 0;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
 @media screen and (min-width: 601px) and (max-width: 1000px) {
   .functioning_restaurants {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
   .functioning_restaurants .restaurants {
     display: flex;
     flex-direction: column;
   }
+  .functioning_restaurants .restaurants h3 + div {
+    align-items: baseline;
+  }
 }
 @media screen and (min-width: 1001px) {
   .functioning_restaurants {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
   }
-  .functioning_restaurants .restaurants {
+  .functioning_restaurants .functioning {
     display: flex;
     flex-direction: row;
   }
+  .functioning_restaurants .functioning div {
+    width: 40%;
+    margin-right: 3rem;
+  }
+  .functioning_restaurants .restaurants {
+    display: flex;
+  }
   .functioning_restaurants .restaurants .cards {
-    width: 100%;
+    width: 50%;
+    flex-direction: row;
   }
   .functioning_restaurants .restaurants .cards .element {
     width: 40%;
