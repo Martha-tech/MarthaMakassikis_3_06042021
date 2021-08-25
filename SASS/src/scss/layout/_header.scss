@@ -1,10 +1,11 @@
 header {
     color: $neutral-color-500;
-    height: 8rem;
+    height: 5em;
+    padding: 0.5em 0.5em;
     & .logo {
         display: flex;
         justify-content: center;
-        font-size: 2.5rem;
+        font-size: 2.5em;
         font-family: $font-logo-title;
     }
 }

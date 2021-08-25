@@ -3,15 +3,16 @@ header {
     display: flex;
     align-items: baseline;
     & .return-to-index {
-        margin: 0.5rem 1rem;
+        font-size: 1.5em;
+        margin: 0.5em 1em;
         & a {
             text-decoration-line: none;
             color: $neutral-color-500;
         }
     }
     & .logo {
-        margin: 0.5rem auto;
-        font-size: 2.5rem;
+        margin: 0.5em auto;
+        font-size: 2.5em;
         font-family: Shrikhand;
     }
 }

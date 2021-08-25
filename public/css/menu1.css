@@ -6091,26 +6091,27 @@ header {
   align-items: baseline;
 }
 header .return-to-index {
-  margin: 0.5rem 1rem;
+  font-size: 1.5em;
+  margin: 0.5em 1em;
 }
 header .return-to-index a {
   text-decoration-line: none;
   color: #000;
 }
 header .logo {
-  margin: 0.5rem auto;
-  font-size: 2.5rem;
+  margin: 0.5em auto;
+  font-size: 2.5em;
   font-family: Shrikhand;
 }
 
 footer {
   background: #000;
   color: #fff;
-  padding: 1rem 1rem;
+  padding: 1em 2em 1em 2em;
 }
 footer .logo {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1em;
   font-family: Shrikhand, OpenSans, Montserrat, Raleway;
   line-height: 2.5;
 }
@@ -6118,11 +6119,73 @@ footer ul li {
   list-style: none;
   line-height: 1.5;
 }
+footer ul li i {
+  margin-right: 0.5em;
+}
 footer ul li a {
   text-decoration-line: none;
   color: #fff;
 }
 
+@media screen and (min-width: 1001px) {
+  footer .logo {
+    display: flex;
+    justify-content: center;
+  }
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50em;
+  }
+  footer ul li {
+    margin-right: 3em;
+    display: flex;
+    align-items: center;
+  }
+  footer ul li i {
+    margin-right: 1em;
+  }
+}
+@media screen and (min-width: 1001px) {
+  footer .logo {
+    display: flex;
+    justify-content: center;
+  }
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  footer ul li {
+    margin-right: 3em;
+    display: flex;
+  }
+}
+.heart {
+  width: 1.25em;
+}
+.heart path {
+  fill: transparent;
+  stroke-width: 30;
+  stroke: #9356DC;
+}
+
+.heart:hover path {
+  animation: animate-heart 2s linear forwards;
+  transition: 0.1s ease 0s;
+}
+
+@keyframes animate-heart {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: #9356DC;
+  }
+}
 * {
   box-sizing: border-box;
   margin: auto;
@@ -6131,45 +6194,56 @@ footer ul li a {
 }
 
 section {
-  background-color: rgba(242, 240, 240, 0.7882352941);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 section .image {
-  height: 8em;
+  height: 15em;
   width: 100%;
   object-fit: cover;
 }
 section .menu {
+  width: 100%;
+  background-color: #e6e3e3c9;
   display: flex;
   flex-direction: column;
   justify-content: center;
   position: sticky;
-  padding: 1rem 1rem;
-  margin-top: -50px;
-  border-radius: 5rem 5rem 0 0;
+  padding: 1em 1em;
+  margin-top: -40px;
+  border-radius: 2.5em 2.5em 0 0;
 }
-section .menu h2 {
+section .menu .title_menu {
+  display: flex;
+  flex-direction: row;
+}
+section .menu .title_menu h2 {
+  align-items: left;
   font-family: Shrikhand;
-  margin: 1rem 1rem;
+  margin-left: 0.5em;
+  margin-right: 5em;
+}
+section .menu .title_menu .heart {
+  margin-left: auto;
+  margin-right: auto;
 }
 section .menu h3 {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 1rem;
-  margin: 1rem 1rem;
+  font-size: 1em;
+  margin: 1em 1em;
   width: 8%;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.25rem solid #99E2D0;
+  padding-bottom: 0.5em;
+  border-bottom: 0.25em solid #99E2D0;
 }
 section .menu .starter, section .menu .main-course, section .menu .dessert {
   color: #000;
-  border-radius: 1rem;
+  border-radius: 1em;
   background-color: #fff;
-  padding: 1rem 1rem;
-  margin: 0.5rem 0.5rem;
-  box-shadow: 0.3rem 0.3rem 0.15rem #d3d3d3;
+  padding: 1em 1em;
+  margin: 0.5em 0.5em;
+  box-shadow: 0.3em 0.3em 0.15em #d3d3d3;
 }
 section .menu .starter :hover, section .menu .main-course :hover, section .menu .dessert :hover {
   cursor: pointer;
@@ -6179,37 +6253,61 @@ section .menu .starter .details, section .menu .main-course .details, section .m
   align-items: baseline;
 }
 section .menu .starter .details .precision, section .menu .main-course .details .precision, section .menu .dessert .details .precision {
-  margin: 0 2rem 0 0;
+  margin: 0 2em 0 0;
 }
 section .menu .starter .details .price, section .menu .main-course .details .price, section .menu .dessert .details .price {
   margin: 0 0 0 auto;
 }
-section .menu .starter button, section .menu .main-course button, section .menu .dessert button {
+section .menu .starter .order-btn, section .menu .main-course .order-btn, section .menu .dessert .order-btn {
   color: #fff;
-  background-image: linear-gradient(#FF79DA, #9356DC);
-  border-radius: 5rem;
-  padding: 0.8rem 0.8rem;
+  background-image: #9356DC;
+  border-radius: 5em;
+  padding: 0.8em 0.8em;
   width: 50%;
   display: flex;
   justify-content: center;
-  margin: 1.5rem auto;
-  box-shadow: 0.3rem 0.3rem 0.15rem #d3d3d3;
+  margin: 1.5em auto;
+  box-shadow: 0.3em 0.3em 0.15em #d3d3d3;
 }
-section .menu .starter button :hover, section .menu .main-course button :hover, section .menu .dessert button :hover {
+section .menu .starter .order-btn :hover, section .menu .main-course .order-btn :hover, section .menu .dessert .order-btn :hover {
   cursor: pointer;
   /*à revoir*/
 }
 
-.menu .starter {
+.menu .entree1 {
+  animation: apparition 3s backwards 0.5s 1;
+}
+
+.menu .entree2 {
+  animation: apparition 3s backwards 1s 1;
+}
+
+.menu .entree3 {
+  animation: apparition 3s backwards 1.5s 1;
+}
+
+.menu .plat1 {
   animation: apparition 3s backwards 2s 1;
 }
 
-.menu .main-course {
-  animation: apparition 3s backwards 5s 1;
+.menu .plat2 {
+  animation: apparition 3s backwards 2.5s 1;
 }
 
-.menu .dessert {
-  animation: apparition 3s backwards 7s 1;
+.menu .plat3 {
+  animation: apparition 3s backwards 3s 1;
+}
+
+.menu .douceur1 {
+  animation: apparition 3s backwards 3.5s 1;
+}
+
+.menu .douceur2 {
+  animation: apparition 3s backwards 4s 1;
+}
+
+.menu .douceur3 {
+  animation: apparition 3s backwards 4.5s 1;
 }
 
 @keyframes apparition {
@@ -6222,46 +6320,98 @@ section .menu .starter button :hover, section .menu .main-course button :hover, 
     opacity: 1;
   }
 }
-.text_info, .text_choose {
-  align-items: baseline;
+.starter, .main-course, .dessert {
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+}
+
+.text_info {
+  width: 100%;
+}
+
+.precision {
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .text_choose {
-  width: 1rem;
-  height: 1rem;
+  margin-right: -3.5em;
+  width: 2.5em;
+  display: flex;
+  justify-content: flex-end;
   position: relative;
   background-color: #99E2D0;
-  transition: transform 1s ease 0.2s;
-}
-.text_choose :hover {
-  display: inline-block;
-  transform: translateX(100px);
-  /*animation: checkbox-appear 3s;*/
+  transition: 1s;
 }
 
-/*@keyframes checkbox-appear {
-    0% {
-        right: 0px;
-        transform: scale(0);
-        background-color: $neutral-color-100;
-    }
-    50% {
-        right: 5px;
-        transform: scale(0.5);
-        background-color:$tertiary-color;
-    }
-    100% {
-        right: 10px;
-        transform : scale(1);
-        background-color:$tertiary-color;
-    }
-}*/
+.plat:hover {
+  cursor: pointer;
+}
+.plat:hover .text_choose {
+  margin-right: 0;
+  transition: 1s;
+}
+.plat:hover .text_choose :hover {
+  width: 80%;
+}
+.plat:hover .text_choose .checkbox {
+  animation: checkbox-rotation 1s;
+}
+
+@keyframes text_choose-appear {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+    transition: transform 1s ease 0.2s;
+  }
+}
+@keyframes checkbox-rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+.fa-check-circle {
+  font-size: 1.5em;
+}
+
 .precision, .price {
   display: flex;
 }
 
 .title, .price {
   font-weight: 700;
+}
+
+.price {
+  padding: 0 0.5em;
+}
+
+@media screen and (min-width: 1001px) {
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 80%;
+  }
+  .menu .first, .menu .second, .menu .third {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .menu .plat {
+    display: flex;
+    flex-direction: column;
+    width: 30em;
+  }
 }
 
 /*# sourceMappingURL=menu1.css.map */

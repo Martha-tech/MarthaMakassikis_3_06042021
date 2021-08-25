@@ -10,7 +10,30 @@
 @import "./layout/nav";
 @import "./layout/footer";
 
+//animation : coeur qui se remplit
+.heart {
+    width: 1.25em;
+    & path {
+        fill: transparent;
+        stroke-width: 30;
+        stroke: $primary-color; //linear-gradient(to left top, $primary-color, $secondary-color);
+    }
+}
+.heart:hover path {
+    animation: animate-heart 2s linear forwards;
+    transition: 0.1s ease 0s;
+}
 
+@keyframes animate-heart {
+    0% {
+        fill: transparent;
+    }
+    100% {
+        fill: $primary-color; //linear-gradient (to left top, $primary-color, $secondary-color);
+    }
+}
+
+//précisions générales
 * {
     box-sizing: border-box;
     margin: auto;
@@ -18,44 +41,56 @@
     font-family: Roboto, serif;
 }
 
+//section
 section {
-    background-color: lighten($neutral-color-200, 5%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     & .image {
-        height: 8em;
+        height: 15em;
         width: 100%;
         object-fit: cover;
     }
     & .menu {
+        width: 100%;
+        background-color: $neutral-color-200;
         display: flex;
         flex-direction: column;
         justify-content: center;
         position: sticky;
-        padding: 1rem 1rem;
-        margin-top: -50px;
-        border-radius: 5rem 5rem 0 0;
-        & h2 {
-            font-family: Shrikhand;
-            margin: 1rem 1rem;
+        padding: 1em 1em;
+        margin-top: -40px;
+        border-radius: 2.5em 2.5em 0 0;
+        & .title_menu {
+            display: flex;
+            flex-direction: row;
+            & h2 {
+                align-items: left;
+                font-family: Shrikhand;
+                margin-left: 0.5em;
+                margin-right: 5em;
+            }
+            & .heart {
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
         & h3 {
            text-transform: uppercase;
            font-weight: 400;
-           font-size: 1rem;
-           margin: 1rem 1rem;
+           font-size: 1em;
+           margin: 1em 1em;
            width: 8%;
-           padding-bottom: 0.5rem;
-           border-bottom: 0.25rem solid $tertiary-color;
+           padding-bottom: 0.5em;
+           border-bottom: 0.25em solid $tertiary-color;
         }
         & .starter, & .main-course, & .dessert {
             color: $neutral-color-500;
-            border-radius: 1rem;
+            border-radius: 1em;
             background-color: $neutral-color-100;
-            padding: 1rem 1rem;
-            margin: 0.5rem 0.5rem;
-            box-shadow: 0.3rem 0.3rem 0.15rem $neutral-color-300;
+            padding: 1em 1em;
+            margin: 0.5em 0.5em;
+            box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
             & :hover {
                 cursor: pointer;
             }
@@ -63,22 +98,22 @@ section {
                 display: flex;
                 align-items: baseline;
                 & .precision {
-                    margin: 0 2rem 0 0;
+                    margin: 0 2em 0 0;
                 }
                 & .price {
                     margin: 0 0 0 auto;
                 }
             }
-        & button {
+        & .order-btn {
             color: $neutral-color-100;
-            background-image: linear-gradient($secondary-color, $primary-color);
-            border-radius: 5rem;  
-            padding: 0.8rem 0.8rem;
+            background-image: $primary-color; //linear-gradient($secondary-color, $primary-color); //inactif
+            border-radius: 5em;  
+            padding: 0.8em 0.8em;
             width: 50%;
             display: flex;
             justify-content: center;
-            margin: 1.5rem auto;
-            box-shadow: 0.3rem 0.3rem 0.15rem $neutral-color-300;
+            margin: 1.5em auto;
+            box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
             & :hover {
                 cursor: pointer; /*à revoir*/
             }
@@ -86,15 +121,36 @@ section {
     }
     }
 }
-.menu .starter {
+
+//animation : apparition progressive des cartes du menu
+.menu .entree1 {
+    animation: apparition 3s backwards 0.5s 1;
+}
+.menu .entree2 {
+    animation: apparition 3s backwards 1s 1;
+}
+.menu .entree3 {
+    animation: apparition 3s backwards 1.5s 1;
+}
+.menu .plat1 {
     animation: apparition 3s backwards 2s 1;
 }
-.menu .main-course {
-    animation: apparition 3s backwards 5s 1;
+.menu .plat2 {
+    animation: apparition 3s backwards 2.5s 1;
 }
-.menu .dessert {
-    animation: apparition 3s backwards 7s 1;
+.menu .plat3 {
+    animation: apparition 3s backwards 3s 1;
 }
+.menu .douceur1 {
+    animation: apparition 3s backwards 3.5s 1;
+}
+.menu .douceur2 {
+    animation: apparition 3s backwards 4s 1;
+}
+.menu .douceur3 {
+    animation: apparition 3s backwards 4.5s 1;
+}
+
 @keyframes apparition {
     from {
         bottom: 400px;
@@ -105,40 +161,71 @@ section {
         opacity: 1;
     }
 }
-.text_info, .text_choose {
-    align-items: baseline;
+
+.starter, .main-course, .dessert {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
 }
 
+//animation : apparition de la div "text_choose"
+.text_info {
+    width: 100%;
+}
+.precision {
+    width: 80%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+
+}
 .text_choose {
-    width: 1rem;
-    height: 1rem;
+    margin-right: -3.5em;
+    width: 2.5em;
+    display: flex;
+    justify-content: flex-end;
     position: relative;
     background-color:$tertiary-color;
-    transition: transform 1s ease 0.2s;
-    & :hover {
-        display: inline-block;
-        transform: translateX(100px);
-        /*animation: checkbox-appear 3s;*/
+    transition: 1s;
+}
+
+.plat:hover {
+    cursor: pointer;
+    .text_choose {
+        margin-right: 0;
+        transition: 1s;
+        & :hover {
+            //width: 30em; //ajout d'une largeur fixe au hover, mais ne bloque pas la largeur
+            width: 80%;
+        }
+        .checkbox {
+            animation: checkbox-rotation 1s;
+        }
     }
 }
 
-/*@keyframes checkbox-appear {
-    0% {
-        right: 0px;
-        transform: scale(0);
-        background-color: $neutral-color-100;
+@keyframes text_choose-appear {
+    from {
+        transform: scale(0);   
     }
-    50% {
-        right: 5px;
-        transform: scale(0.5);
-        background-color:$tertiary-color;
+    to {
+        transform: scale(1);
+        transition: transform 1s ease 0.2s;
     }
-    100% {
-        right: 10px;
-        transform : scale(1);
-        background-color:$tertiary-color;
+}
+
+@keyframes checkbox-rotation {
+    from {
+        transform: rotate(0deg);
     }
-}*/
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+.fa-check-circle {
+    font-size: 1.5em;
+}
 
 .precision, .price {
     display: flex;
@@ -146,4 +233,30 @@ section {
 
 .title, .price {
     font-weight: 700;
+}
+
+.price {
+    padding: 0 0.5em; //ajout
+}
+
+// Design adapté aux différentes tailles d'écran
+@media screen and (min-width: 1001px) {
+    .menu {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        width: 80%; // inactif
+
+        .first, .second, .third {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            width: 100%;
+        }
+        .plat {
+            display: flex;
+            flex-direction: column;
+            width: 30em;
+        }
+    }
 }

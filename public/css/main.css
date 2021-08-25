@@ -4,23 +4,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Shrikhand&display=swap");
 header {
   color: #000;
-  height: 8rem;
+  height: 5em;
+  padding: 0.5em 0.5em;
 }
 header .logo {
   display: flex;
   justify-content: center;
-  font-size: 2.5rem;
+  font-size: 2.5em;
   font-family: Shrikhand, OpenSans, Montserrat, Raleway;
 }
 
 footer {
   background: #000;
   color: #fff;
-  padding: 1rem 1rem;
+  padding: 1em 2em 1em 2em;
 }
 footer .logo {
   color: #fff;
-  font-size: 1rem;
+  font-size: 1em;
   font-family: Shrikhand, OpenSans, Montserrat, Raleway;
   line-height: 2.5;
 }
@@ -28,11 +29,74 @@ footer ul li {
   list-style: none;
   line-height: 1.5;
 }
+footer ul li i {
+  margin-right: 0.5em;
+}
 footer ul li a {
   text-decoration-line: none;
   color: #fff;
 }
 
+@media screen and (min-width: 1001px) {
+  footer .logo {
+    display: flex;
+    justify-content: center;
+  }
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 50em;
+  }
+  footer ul li {
+    margin-right: 3em;
+    display: flex;
+    align-items: center;
+  }
+  footer ul li i {
+    margin-right: 1em;
+  }
+}
+@media screen and (min-width: 1001px) {
+  footer .logo {
+    display: flex;
+    justify-content: center;
+  }
+  footer ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  footer ul li {
+    margin-right: 3em;
+    display: flex;
+  }
+}
+.heart {
+  width: 1.5em;
+  padding: 0.2em 0.2em;
+}
+.heart path {
+  fill: transparent;
+  stroke-width: 30;
+  stroke: #9356DC;
+}
+
+.heart:hover path {
+  animation: animate-heart 2s linear forwards;
+  transition: 0.1s ease 0s;
+}
+
+@keyframes animate-heart {
+  0% {
+    fill: transparent;
+  }
+  100% {
+    fill: #9356DC;
+  }
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -42,8 +106,8 @@ footer ul li a {
 
 span, p {
   font-weight: normal;
-  font-size: 16px;
-  padding: 0.5rem 0.5rem;
+  font-size: 1em;
+  padding: 0.5em 0.5em;
   line-height: 1;
 }
 
@@ -71,11 +135,6 @@ body {
   transition: 1s;
 }
 
-.contenu {
-  animation: apparition 1s 2s forwards;
-  opacity: 0;
-}
-
 @keyframes disappearance {
   from {
     opacity: 1;
@@ -84,6 +143,11 @@ body {
     opacity: 0;
   }
 }
+.contenu {
+  animation: apparition 1s 2s forwards;
+  opacity: 0;
+}
+
 @keyframes apparition {
   from {
     opacity: 0;
@@ -94,7 +158,7 @@ body {
 }
 .reservation {
   background-color: #e6e3e3c9;
-  margin: 0.5rem 0rem;
+  margin: 0.5em 0em;
 }
 .reservation h2 {
   display: flex;
@@ -102,12 +166,12 @@ body {
   line-height: 1;
 }
 .reservation .location {
-  padding: 0.5rem 0.5em;
+  padding: 0.5em 0.5em;
   background-color: #d3d3d3;
   display: flex;
   justify-content: center;
-  border-top: 0.1rem solid #c0b7b7;
-  box-shadow: 1.5rem 2rem 2rem 0.5rem #d3d3d3;
+  border-top: 0.1em solid #c0b7b7;
+  box-shadow: 1.5em 2em 2em 0.5em #d3d3d3;
   /*chiffres à revoir*/
 }
 .reservation .location input {
@@ -116,21 +180,22 @@ body {
 }
 .reservation .select_menu {
   background-color: #e6e3e3c9;
-  padding: 1.5rem 1.5rem;
+  padding: 1.5em 1.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .reservation .select_menu button {
+  width: 60%;
   color: #fff;
   background-image: linear-gradient(#FF79DA, #9356DC);
-  border-radius: 5rem;
-  padding: 0.8rem 0.8rem;
-  width: 50%;
+  border-radius: 5em;
+  padding: 0.8em 0.8em;
   display: flex;
   justify-content: center;
-  box-shadow: 0.3rem 0.3rem 0.15rem #d3d3d3;
+  box-shadow: 0.3em 0.3em 0.15em #d3d3d3;
+  cursor: pointer;
 }
 
 .functioning_restaurants {
@@ -139,9 +204,9 @@ body {
   width: 100%;
 }
 .functioning_restaurants .functioning {
-  margin-top: 2rem;
-  margin-left: 2rem;
-  padding: 0.8rem 0.8rem;
+  margin-top: 2em;
+  margin-left: 2em;
+  padding: 0.8em 0.8em;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,28 +214,28 @@ body {
 }
 .functioning_restaurants .functioning h3 {
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .functioning_restaurants .functioning div {
   background-color: #e6e3e3c9;
-  border-radius: 2rem;
-  padding: 1rem 1rem;
-  margin-bottom: 1rem;
-  width: 75%;
-  box-shadow: 0.3rem 0.3rem 0.15rem #d3d3d3;
+  border-radius: 2em;
+  padding: 1em 1em;
+  margin-bottom: 1em;
+  width: 90%;
+  box-shadow: 0.3em 0.3em 0.15em #d3d3d3;
   align-items: baseline;
 }
 .functioning_restaurants .functioning div .number {
   border-radius: 50%;
-  border: 0.5rem solid #9356DC;
+  border: 0.5em solid #9356DC;
   background-color: #9356DC;
   color: #fff;
-  font-size: 0.8rem;
-  padding: 0.02rem 0.2rem;
-  margin: 0 1.5rem 0 -1.5rem;
+  font-size: 0.8em;
+  padding: 0.02em 0.2em;
+  margin: 0 1.5em 0 -1.5em;
 }
 .functioning_restaurants .functioning div i {
-  padding: 0 0.7rem 0 0;
+  padding: 0 0.7em 0 0;
 }
 .functioning_restaurants .functioning div:hover {
   background-color: #e4d5f6;
@@ -179,74 +244,80 @@ body {
   color: #782cd3;
 }
 .functioning_restaurants .restaurants {
-  margin-top: 2rem;
-  padding: 0.8rem 0.8rem;
-  line-height: 1.5rem;
+  margin-top: 2em;
+  padding: 0.8em 0.8em;
+  line-height: 1.5em;
   background-color: #e6e3e3c9;
   width: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 .functioning_restaurants .restaurants h3 {
   display: flex;
-  justify-content: left;
-  /*ne fonctionne pas*/
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 .functioning_restaurants .restaurants .cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-radius: 2rem;
-  width: 80%;
+  border-radius: 2em;
+  width: 100%;
+}
+.functioning_restaurants .restaurants .cards .all_elements {
+  margin: auto auto;
 }
 .functioning_restaurants .restaurants .cards .element {
-  width: 100%;
-  justify-content: center;
-  align-items: center;
+  width: 25em;
   background-color: #fff;
-  border-radius: 1.5rem;
-  height: 15rem;
-  margin: 1rem 1rem;
-  box-shadow: 0.3rem 0.3rem 0.15rem #d3d3d3;
+  border-radius: 1.5em;
+  height: 20em;
+  margin: 1em 1em 2em 1em;
+  box-shadow: 0.3em 0.3em 0.15em #d3d3d3;
+}
+.functioning_restaurants .restaurants .cards .element a {
+  text-decoration: none;
+  color: #000;
+}
+.functioning_restaurants .restaurants .cards .element .palette-du-gout, .functioning_restaurants .restaurants .cards .element .note-enchantee, .functioning_restaurants .restaurants .cards .element .a-la-francaise, .functioning_restaurants .restaurants .cards .element .delice-des-sens {
+  height: 15em;
+  border-top-right-radius: 1.5em;
+  border-top-left-radius: 1.5em;
+  background-size: cover;
+  background-position: center;
 }
 .functioning_restaurants .restaurants .cards .element .palette-du-gout {
   background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");
-  height: 170px;
-  border-top-right-radius: 1.5rem;
-  border-top-left-radius: 1.5rem;
 }
-.functioning_restaurants .restaurants .cards .element img {
-  border-radius: 1.5rem 1.5rem 0 0;
-  object-fit: cover;
-  height: 10rem;
-  width: 100%;
+.functioning_restaurants .restaurants .cards .element .note-enchantee {
+  background-image: url("../../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+}
+.functioning_restaurants .restaurants .cards .element .a-la-francaise {
+  background-image: url("../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+}
+.functioning_restaurants .restaurants .cards .element .delice-des-sens {
+  background-image: url("../../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
 }
 .functioning_restaurants .restaurants .cards .element .nouveau1, .functioning_restaurants .restaurants .cards .element .nouveau2 {
   color: #2c9c81;
   background-color: #99E2D0;
-  border-radius: 0.5rem;
-}
-.functioning_restaurants .restaurants .cards .element .nouveau1 {
+  border-radius: 0.5em;
+  width: 20%;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  height: 1.5em;
   position: relative;
-  top: 672px;
-  right: 96px;
-  /*sort de l'image quand la taille de l'écran augmente*/
-}
-.functioning_restaurants .restaurants .cards .element .nouveau2 {
-  position: relative;
-  top: 575px;
-  right: -370px;
-  /*idem*/
+  top: 14px;
+  right: -296px;
 }
 .functioning_restaurants .restaurants .cards .element .description {
-  border-radius: 0 0 1.5rem 1.5rem;
-  height: 5rem;
+  border-radius: 0 0 1.5em 1.5em;
+  height: 5em;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 0rem 1rem;
+  padding: 0em 1em;
 }
 .functioning_restaurants .restaurants .cards .element .description .text {
   line-height: 0.5;
@@ -254,46 +325,73 @@ body {
 .functioning_restaurants .restaurants .cards .element .description .text .title {
   font-weight: 700;
 }
-.functioning_restaurants .restaurants .cards .element .description .text .title a {
-  text-decoration-line: none;
-  color: #000;
-}
-
 @media screen and (min-width: 601px) and (max-width: 1000px) {
-  .functioning_restaurants {
-    display: flex;
-    flex-direction: column;
+  .functioning_restaurants .reservation .select_menu button {
+    width: 50%;
   }
-  .functioning_restaurants .restaurants {
+  .functioning_restaurants .functioning_restaurants {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   }
-  .functioning_restaurants .restaurants h3 + div {
+  .functioning_restaurants .functioning_restaurants .functioning {
+    width: 40%;
+  }
+  .functioning_restaurants .functioning_restaurants .functioning .number1, .functioning_restaurants .functioning_restaurants .functioning .number2, .functioning_restaurants .functioning_restaurants .functioning .number3 {
     align-items: baseline;
+    margin-right: auto;
+  }
+  .functioning_restaurants .functioning_restaurants .restaurants {
+    width: 60%;
+  }
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: auto;
+  }
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element {
+    width: 30%;
+  }
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element .nouveau1, .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element .nouveau2 {
+    width: 42%;
+    right: -325px;
   }
 }
 @media screen and (min-width: 1001px) {
-  .functioning_restaurants {
+  .functioning_restaurants .reservation .select_menu button {
+    width: 40%;
+  }
+  .functioning_restaurants .functioning_restaurants {
+    display: flex;
+    flex-direction: row;
+  }
+  .functioning_restaurants .functioning_restaurants .functioning {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  .functioning_restaurants .functioning_restaurants .functioning h3 {
+    margin-right: 2em;
+  }
+  .functioning_restaurants .functioning_restaurants .functioning div {
     display: flex;
     flex-direction: column;
   }
-  .functioning_restaurants .functioning {
+  .functioning_restaurants .functioning_restaurants .restaurants {
+    display: flex;
+    width: 60%;
+  }
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements {
     display: flex;
     flex-direction: row;
   }
-  .functioning_restaurants .functioning div {
-    width: 40%;
-    margin-right: 3rem;
-  }
-  .functioning_restaurants .restaurants {
-    display: flex;
-  }
-  .functioning_restaurants .restaurants .cards {
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element {
     width: 50%;
-    flex-direction: row;
+    padding-bottom: 0.2em;
   }
-  .functioning_restaurants .restaurants .cards .element {
-    width: 40%;
+  .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element .nouveau1, .functioning_restaurants .functioning_restaurants .restaurants .all_elements .element .nouveau2 {
+    width: 44%;
   }
 }
 
