@@ -323,12 +323,18 @@ body {
   font-weight: 700;
 }
 @media screen and (min-width: 601px) and (max-width: 1000px) {
+  .functioning_restaurants .reservation {
+    width: 30em;
+    margin: auto;
+  }
   .functioning_restaurants .reservation .select_menu button {
     width: 50%;
   }
   .functioning_restaurants .functioning_restaurants {
     display: flex;
     flex-direction: row;
+    width: 30em;
+    margin: auto;
   }
   .functioning_restaurants .functioning_restaurants .functioning {
     width: 40%;
@@ -354,6 +360,10 @@ body {
     display: flex;
     align-items: baseline;
     margin-right: auto;
+  }
+  .functioning_restaurants footer {
+    width: 30em;
+    margin: auto;
   }
 }
 @media screen and (min-width: 1001px) {

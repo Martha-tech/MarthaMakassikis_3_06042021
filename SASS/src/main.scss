@@ -273,6 +273,8 @@ body {
 //tablettes
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     .reservation {
+        width: 30em;
+        margin: auto;
         & .select_menu {
             & button {
                 width: 50%;
@@ -282,6 +284,8 @@ body {
     .functioning_restaurants {
         display: flex;
         flex-direction: row;
+        width: 30em;
+        margin: auto;
         & .functioning {
             width: 40%;
         }
@@ -307,6 +311,10 @@ body {
         display: flex;
         align-items: baseline;
         margin-right: auto;
+    }
+    footer {
+        width: 30em;
+        margin: auto;
     }
 }
 

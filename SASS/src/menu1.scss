@@ -83,7 +83,7 @@ section {
            text-transform: uppercase;
            font-weight: 400;
            font-size: 1em;
-           margin: 1em 1em;
+           margin: 2em 0 1em 1em;
            width: 8%;
            padding-bottom: 0.5em;
            border-bottom: 0.25em solid $tertiary-color;
@@ -98,12 +98,8 @@ section {
             & :hover {
                 cursor: pointer;
             }
-            //& .precision {
-            //        margin: 0 2em 0 0;
-            //    }
             & .price {
                 display: flex;
-                //align-items: baseline; //ne fonctionne pas: prix décalé vers le haut avec le hover
                 margin: 0 1em 0 auto;
                 }
             }
@@ -113,7 +109,6 @@ section {
             background-image: linear-gradient($secondary-color, $primary-color);
             border-radius: 5em;  
             padding: 0.8em 1.5em;
-           //width: 100%;
             display: flex;
             justify-content: center;
             margin: 1.5em auto;
@@ -175,21 +170,13 @@ section {
 
 //animation : apparition de la div "text_choose"
 .text_info {
-    //width: 100%;
     width: 69%;
-    margin:0;
+    margin: 0;
     padding: 1em 0 1em 1em;
 }
-.precision {
-    width: 70%;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
 
-}
 .text_choose {
     margin-right: -2.5em;
-    //width: 2.5em;
     display: flex;
     justify-content: flex-end;
     position: relative;
@@ -198,6 +185,12 @@ section {
 
 .plat:hover {
     cursor: pointer;
+    .precision {
+        width: 70%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
     .text_choose {
         margin-right: 0;
         transition: 1s;
@@ -210,9 +203,11 @@ section {
             color: white;
             background-color: $tertiary-color;
             margin-left: 0.5em;
-            animation: checkbox-rotation 1s;
             padding: 1.5em 1.5em;
             border-radius: 0 1em 1em 0;
+            i {
+                animation: checkbox-rotation 1s;
+            }
         }
     }
 }
@@ -232,7 +227,7 @@ section {
         transform: rotate(0deg);
     }
     to {
-        transform: rotate(-360deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -249,23 +244,78 @@ section {
 }
 
 // Design adapté aux différentes tailles d'écran
-@media screen and (min-width: 1001px) {
-    .menu {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        width: 80%; // inactif
-
-        .first, .second, .third {
+//tablettes
+@media screen and (min-width: 601px) and (max-width: 1000px) {
+    section { 
+        .image {
+            height: 15em;
+            width: 40em;
+            margin: auto;
+            object-fit: cover;
+        } 
+        .menu {
+            width: 40em;
+            margin: auto;
             display: flex;
             flex-direction: row;
             justify-content: center;
-            width: 100%;
+            margin-top: -40px;
+            & .title_menu {
+                display: flex;
+                flex-direction: row;
+                & h2 {
+                    align-items: left;
+                    font-family: Shrikhand;
+                    margin-left: 0.5em;
+                    margin-right: 5em;
+                }
+                & .heart {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            .first, .second, .third {
+                width: 100%;
+            }
+            .plat {
+                width: 30em; //modifié
+                margin: 0.5em auto;
+            }
         }
-        .plat {
+    }
+    footer {
+        width: 40em;
+        margin: auto;
+    }
+}
+
+//ordinateurs
+@media screen and (min-width: 1001px) {
+    section {
+        width: 100%;
+        .menu {
             display: flex;
-            flex-direction: column;
-            width: 30em;
+            flex-direction: row;
+            justify-content: center;
+            margin-top: -40px;
+            & .title_menu {
+                display: flex;
+                flex-direction: row;
+                & h2 {
+                    align-items: left;
+                    font-family: Shrikhand;
+                    margin-left: 0.5em;
+                    margin-right: 5em;
+                }
+                & .heart {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            }
+            .first, .second, .third {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+            }
         }
     }
 }
