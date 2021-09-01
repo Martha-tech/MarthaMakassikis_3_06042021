@@ -127,11 +127,11 @@ body {
         justify-content: center;
         align-items: center;
         & button {
-            width: 60%;
+            //width: 60%;
             color: $neutral-color-100;
             background-image: linear-gradient($secondary-color, $primary-color);
             border-radius: 5em;  
-            padding: 0.8em 0.8em;
+            padding: 0.8em 1.5em;
             display: flex;
             justify-content: center;
             box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
@@ -164,7 +164,7 @@ body {
             margin-bottom: 1em;
             width: 90%;
             box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
-            align-items: baseline;
+            //align-items: baseline;
             & .number {
                 border-radius: 50%;
                 border: 0.5em solid $primary-color;
@@ -270,6 +270,7 @@ body {
 }
 
 //Design adapté aux différentes tailles d'écran
+//tablettes
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     .reservation {
         & .select_menu {
@@ -283,10 +284,6 @@ body {
         flex-direction: row;
         & .functioning {
             width: 40%;
-            .number1, .number2, .number3 {
-                align-items: baseline;
-                margin-right: auto;
-            }
         }
         & .restaurants {
             width: 60%;
@@ -300,14 +297,22 @@ body {
                     width: 30%;
                     .nouveau1, .nouveau2 {
                         width: 42%;
-                        right: -325px; //n'est pas pris en compte par le navigateur
+                        right: -325px;
                     }
                 }
             }
         }
     }
+    .number1, .number2, .number3 {
+        display: flex;
+        align-items: baseline;
+        margin-right: auto;
+    }
 }
 
+
+
+//ordinateurs
 @media screen and (min-width: 1001px) {
     .reservation {
         & .select_menu {

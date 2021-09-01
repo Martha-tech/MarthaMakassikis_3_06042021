@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
-@import "scss/fontawesome.scss";
+@import "./scss/fontawesome.scss";
 @import "scss/solid.scss";
 
 @import "./utils/variables";
@@ -39,6 +39,10 @@
     margin: auto;
     padding: 0;
     font-family: Roboto, serif;
+}
+
+p {
+    margin: 0 0 0 0;
 }
 
 //section
@@ -84,43 +88,41 @@ section {
            padding-bottom: 0.5em;
            border-bottom: 0.25em solid $tertiary-color;
         }
-        & .starter, & .main-course, & .dessert {
+        & .plat {
+            width: 25em;
             color: $neutral-color-500;
             border-radius: 1em;
             background-color: $neutral-color-100;
-            padding: 1em 1em;
             margin: 0.5em 0.5em;
             box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
             & :hover {
                 cursor: pointer;
             }
-            & .details {
+            //& .precision {
+            //        margin: 0 2em 0 0;
+            //    }
+            & .price {
                 display: flex;
-                align-items: baseline;
-                & .precision {
-                    margin: 0 2em 0 0;
-                }
-                & .price {
-                    margin: 0 0 0 auto;
+                //align-items: baseline; //ne fonctionne pas: prix décalé vers le haut avec le hover
+                margin: 0 1em 0 auto;
                 }
             }
-        & .order-btn {
+        }
+        button {
             color: $neutral-color-100;
-            background-image: $primary-color; //linear-gradient($secondary-color, $primary-color); //inactif
+            background-image: linear-gradient($secondary-color, $primary-color);
             border-radius: 5em;  
-            padding: 0.8em 0.8em;
-            width: 50%;
+            padding: 0.8em 1.5em;
+           //width: 100%;
             display: flex;
             justify-content: center;
             margin: 1.5em auto;
             box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
             & :hover {
-                cursor: pointer; /*à revoir*/
+                cursor: pointer; //inactif
             }
         }
     }
-    }
-}
 
 //animation : apparition progressive des cartes du menu
 .menu .entree1 {
@@ -132,23 +134,26 @@ section {
 .menu .entree3 {
     animation: apparition 3s backwards 1.5s 1;
 }
-.menu .plat1 {
+.menu .entree4 {
     animation: apparition 3s backwards 2s 1;
 }
-.menu .plat2 {
+.menu .plat1 {
     animation: apparition 3s backwards 2.5s 1;
 }
-.menu .plat3 {
+.menu .plat2 {
     animation: apparition 3s backwards 3s 1;
 }
-.menu .douceur1 {
+.menu .plat3 {
     animation: apparition 3s backwards 3.5s 1;
 }
-.menu .douceur2 {
+.menu .douceur1 {
     animation: apparition 3s backwards 4s 1;
 }
-.menu .douceur3 {
+.menu .douceur2 {
     animation: apparition 3s backwards 4.5s 1;
+}
+.menu .douceur3 {
+    animation: apparition 3s backwards 5s 1;
 }
 
 @keyframes apparition {
@@ -170,22 +175,24 @@ section {
 
 //animation : apparition de la div "text_choose"
 .text_info {
-    width: 100%;
+    //width: 100%;
+    width: 69%;
+    margin:0;
+    padding: 1em 0 1em 1em;
 }
 .precision {
-    width: 80%;
+    width: 70%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 
 }
 .text_choose {
-    margin-right: -3.5em;
-    width: 2.5em;
+    margin-right: -2.5em;
+    //width: 2.5em;
     display: flex;
     justify-content: flex-end;
     position: relative;
-    background-color:$tertiary-color;
     transition: 1s;
 }
 
@@ -194,12 +201,18 @@ section {
     .text_choose {
         margin-right: 0;
         transition: 1s;
-        & :hover {
-            //width: 30em; //ajout d'une largeur fixe au hover, mais ne bloque pas la largeur
-            width: 80%;
+        display: flex;
+        align-items: center;
+        .price {
+            margin:0;
         }
         .checkbox {
+            color: white;
+            background-color: $tertiary-color;
+            margin-left: 0.5em;
             animation: checkbox-rotation 1s;
+            padding: 1.5em 1.5em;
+            border-radius: 0 1em 1em 0;
         }
     }
 }
@@ -225,10 +238,6 @@ section {
 
 .fa-check-circle {
     font-size: 1.5em;
-}
-
-.precision, .price {
-    display: flex;
 }
 
 .title, .price {
