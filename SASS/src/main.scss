@@ -12,27 +12,16 @@
 
 //Animation : coeur qui se remplit
 .heart {
+    background-image: url("../../images/svg/heart-thin.svg");
     width: 1.5em;
-    padding: 0.2em 0.2em;
-    & path {
-        fill: transparent;
-        stroke-width: 30;
-        stroke: $primary-color;//linear-gradient ($primary-color, $secondary-color);
+    height: 1.5em;
+    background-repeat: no-repeat;
+    margin: 16px;
+    &:hover {
+        background-image: url("../../images/svg/heart.svg");
     }
-}
-.heart:hover path {
-    animation: animate-heart 2s linear forwards;
-    transition: 0.1s ease 0s;
 }
 
-@keyframes animate-heart {
-    0% {
-        fill: transparent;
-    }
-    100% {
-        fill: $primary-color; //linear-gradient($primary-color, $secondary-color);
-    }
-}
 
 // Précisions générales
 * {
@@ -113,7 +102,7 @@ body {
         display: flex;
         justify-content: center;
         border-top: 0.1em solid $neutral-color-400;
-        box-shadow: 1.5em 2em 2em 0.5em $neutral-color-300; /*chiffres à revoir*/
+        //box-shadow: 1.5em 2em 2em 0.5em $neutral-color-300; /*chiffres à revoir*/
         & input {
             background-color: $neutral-color-300;
             border: none;
@@ -146,9 +135,7 @@ body {
     flex-direction: column;
     width: 100%;
     .functioning {
-        margin-top: 2em;
-        margin-left: 2em;
-        padding: 0.8em 0.8em;
+        padding: 2em 1em 1em 1em;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -194,87 +181,96 @@ body {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        & h3 {
-            display: flex;
-            margin-bottom: 1em;
-        }
         & .cards {
             display: flex;
             flex-direction: column;
             justify-content: center;
             border-radius: 2em;
             width: 100%;
-            & .all_elements {
-                margin: auto auto; //ajout
+            & h3 {
+                display: flex;
+                margin-bottom: 1em;
             }
-            & .element {
-                //width: 80%;
-                width: 25em;
-                background-color: $neutral-color-100;
-                border-radius: 1.5em;
-                height: 20em;
-                margin: 1em 1em 2em 1em; //ajout
-                box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
-                & a {
-                    text-decoration: none;
-                    color: $neutral-color-500;
-                }            
-                & .palette-du-gout, & .note-enchantee, & .a-la-francaise, & .delice-des-sens {
-                    height: 15em;
-                    border-top-right-radius: 1.5em;
-                    border-top-left-radius: 1.5em;
-                    background-size: cover;
-                    background-position: center;
-                }
-                & .palette-du-gout {
-                    background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");   
-                }
-                & .note-enchantee {
-                    background-image: url("../../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
-                }
-                & .a-la-francaise {
-                    background-image: url("../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
-                }
-                & .delice-des-sens {
-                    background-image: url("../../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
-                }
-                & .nouveau1, & .nouveau2 {
-                    color: darken($tertiary-color, 35%);
-                    background-color: $tertiary-color;
-                    border-radius: 0.5em;
-                    width: 20%;
-                    padding-left: 0.5em;
-                    padding-right: 0.5em;
-                    height: 1.5em;
-                    position: relative;
-                    top: 14px;
-                    right: -296px;
-                }
-                & .description {
-                    border-radius: 0 0 1.5em 1.5em;
-                    height: 5em;
-                    width: 100%;
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: space-between;
-                    padding: 0em 1em;
-                    & .text {
-                        line-height: 0.5;
-                            & .title {
-                                font-weight: 700;
-                            }
-                        }
+            .all_elements {
+                margin: auto auto; //ajout
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                & .element {
+                    //width: 80%;
+                    width: 25em;
+                    background-color: $neutral-color-100;
+                    border-radius: 1.5em;
+                    height: 20em;
+                    margin: 1em 1em 2em 1em; //ajout
+                    box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
+                    & a {
+                        text-decoration: none;
+                        color: $neutral-color-500;
+                    }            
+                    & .palette-du-gout, & .note-enchantee, & .a-la-francaise, & .delice-des-sens {
+                        height: 15em;
+                        border-top-right-radius: 1.5em;
+                        border-top-left-radius: 1.5em;
+                        background-size: cover;
+                        background-position: center;
                     }
+                    & .palette-du-gout {
+                        background-image: url("../../images/restaurants/jay-wennington-N_Y88TWmGwA-unsplash.jpg");   
+                    }
+                    & .note-enchantee {
+                        background-image: url("../../images/restaurants/stil-u2Lp8tXIcjw-unsplash.jpg");
+                    }
+                    & .a-la-francaise {
+                        background-image: url("../../images/restaurants/toa-heftiba-DQKerTsQwi0-unsplash.jpg");
+                    }
+                    & .delice-des-sens {
+                        background-image: url("../../images/restaurants/louis-hansel-shotsoflouis-qNBGVyOCY8Q-unsplash.jpg");
+                    }
+                    & .nouveau1, & .nouveau2 {
+                        color: darken($tertiary-color, 35%);
+                        background-color: $tertiary-color;
+                        border-radius: 0.5em;
+                        width: 20%;
+                        padding-left: 0.5em;
+                        padding-right: 0.5em;
+                        height: 1.5em;
+                        position: relative;
+                        top: 14px;
+                        right: -296px;
+                    }
+                    & .description {
+                        border-radius: 0 0 1.5em 1.5em;
+                        height: 5em;
+                        //width: 100%;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        padding: 0.5em 1em;
+                        & .text {
+                            line-height: 0.5;
+                                & .title {
+                                    font-weight: 700;
+                                }
+                            }
+                    }
+                }
             }
         }
+    }
+}
+.number1, .number2, .number3 {
+    display: flex;
+    align-items: baseline;
+    margin: auto;
 }
 
 //Design adapté aux différentes tailles d'écran
 //tablettes
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     .reservation {
-        width: 30em;
-        margin: auto;
+        //width: 40em;
+        //margin: auto;
         & .select_menu {
             & button {
                 width: 50%;
@@ -282,38 +278,19 @@ body {
         }
     }
     .functioning_restaurants {
-        display: flex;
-        flex-direction: row;
-        width: 30em;
-        margin: auto;
-        & .functioning {
-            width: 40%;
-        }
-        & .restaurants {
-            width: 60%;
-            .all_elements {
-                display: flex;
-                flex-direction: row;
-                width: 100%;
-                flex-wrap: wrap;
-                margin: auto;
-                .element {
-                    width: 30%;
-                    .nouveau1, .nouveau2 {
-                        width: 42%;
-                        right: -325px;
-                    }
-                }
+        //width: 40em;
+        //margin: auto;
+        .element {
+            width: 30%;
+            .nouveau1, .nouveau2 {
+                width: 42%;
+                right: -325px;
             }
         }
     }
     .number1, .number2, .number3 {
         display: flex;
         align-items: baseline;
-        margin-right: auto;
-    }
-    footer {
-        width: 30em;
         margin: auto;
     }
 }
@@ -330,36 +307,33 @@ body {
         }
     }
     .functioning_restaurants {
-        display: flex;
-        flex-direction: row;
         & .functioning {
             display: flex;
-            flex-direction: column;
-            width: 40%;
+            flex-direction: row;
             & h3 {
                 margin-right: 2em;
             }
             & div {
                 display: flex;
-                flex-direction: column;
-                //width: 80%;
-                //margin-right: 3em;
+                //width: 30%;
+                margin-right: 3em;
             }
         }
         & .restaurants {
             display: flex;
-            width: 60%;
             & .all_elements {
                 display: flex;
                 flex-direction: row;
                 & .element {
-                    width: 50%;
                     padding-bottom: 0.2em;
-                    .nouveau1, .nouveau2 {
-                        width: 44%;
-                    }
                 }
             }
         }
     }
-}}
+    .number1, .number2, .number3 {
+        display: flex;
+        align-items: baseline;
+        margin: auto;
+    }
+}
+

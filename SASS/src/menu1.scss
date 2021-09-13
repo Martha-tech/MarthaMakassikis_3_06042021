@@ -12,26 +12,16 @@
 
 //animation : coeur qui se remplit
 .heart {
-    width: 1.25em;
-    & path {
-        fill: transparent;
-        stroke-width: 30;
-        stroke: $primary-color; //linear-gradient(to left top, $primary-color, $secondary-color);
+    background-image: url("../../images/svg/heart-thin.svg");
+    width: 1.5em;
+    height: 1.5em;
+    background-repeat: no-repeat;
+    margin: 16px;
+    &:hover {
+        background-image: url("../../images/svg/heart.svg");
     }
-}
-.heart:hover path {
-    animation: animate-heart 2s linear forwards;
-    transition: 0.1s ease 0s;
 }
 
-@keyframes animate-heart {
-    0% {
-        fill: transparent;
-    }
-    100% {
-        fill: $primary-color; //linear-gradient (to left top, $primary-color, $secondary-color);
-    }
-}
 
 //précisions générales
 * {
@@ -71,7 +61,7 @@ section {
             & h2 {
                 align-items: left;
                 font-family: Shrikhand;
-                margin-left: 0.5em;
+                //margin-left: 0.5em;
                 margin-right: 5em;
             }
             & .heart {
@@ -89,7 +79,7 @@ section {
            border-bottom: 0.25em solid $tertiary-color;
         }
         & .plat {
-            width: 25em;
+            width: 20em;
             color: $neutral-color-500;
             border-radius: 1em;
             background-color: $neutral-color-100;
@@ -113,9 +103,7 @@ section {
             justify-content: center;
             margin: 1.5em auto;
             box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
-            & :hover {
-                cursor: pointer; //inactif
-            }
+            cursor: pointer;
         }
     }
 
@@ -170,7 +158,7 @@ section {
 
 //animation : apparition de la div "text_choose"
 .text_info {
-    width: 69%;
+    width: 60%;
     margin: 0;
     padding: 1em 0 1em 1em;
 }
@@ -183,32 +171,56 @@ section {
     transition: 1s;
 }
 
-.plat:hover {
-    cursor: pointer;
-    .precision {
-        width: 70%;
+.precision {
+    font-size: 0.85em;
+}
+
+.plat {
+    overflow: hidden;
+    &:hover {
+        cursor: pointer;
+        .title {
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .precision {
+            width: 70%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .text_choose {
+            margin-right: 0;
+            transition: 1s;
+            display: flex;
+            align-items: center;
+            .price {
+                margin:0;
+            }
+            .checkbox {
+                color: white;
+                background-color: $tertiary-color;
+                margin-left: 0.5em;
+                padding: 1.5em 1.5em 1.2em 1.5em;
+                border-radius: 0 1em 1em 0;
+                i {
+                    animation: checkbox-rotation 1s;
+                }
+            }
+        }
+    }
+}
+.plat {
+    .title {
         text-overflow: ellipsis;
         white-space: nowrap;
         overflow: hidden;
     }
-    .text_choose {
-        margin-right: 0;
-        transition: 1s;
-        display: flex;
-        align-items: center;
-        .price {
-            margin:0;
-        }
-        .checkbox {
-            color: white;
-            background-color: $tertiary-color;
-            margin-left: 0.5em;
-            padding: 1.5em 1.5em;
-            border-radius: 0 1em 1em 0;
-            i {
-                animation: checkbox-rotation 1s;
-            }
-        }
+    .precision {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }
 
@@ -246,19 +258,15 @@ section {
 // Design adapté aux différentes tailles d'écran
 //tablettes
 @media screen and (min-width: 601px) and (max-width: 1000px) {
-    section { 
+    section {
+        //width: 40em;
+        //margin: auto;
         .image {
             height: 15em;
-            width: 40em;
-            margin: auto;
             object-fit: cover;
         } 
         .menu {
-            width: 40em;
-            margin: auto;
             display: flex;
-            flex-direction: row;
-            justify-content: center;
             margin-top: -40px;
             & .title_menu {
                 display: flex;
@@ -273,6 +281,7 @@ section {
                     margin-left: auto;
                     margin-right: auto;
                 }
+            }
             .first, .second, .third {
                 width: 100%;
             }
@@ -282,24 +291,24 @@ section {
             }
         }
     }
-    footer {
-        width: 40em;
-        margin: auto;
-    }
 }
 
 //ordinateurs
-@media screen and (min-width: 1001px) {
+@media all and (min-width: 1001px) {
     section {
-        width: 100%;
+        //width: 70em;
+        //margin: auto;
+        .image {
+            height: 15em;
+            object-fit: cover;
+        } 
         .menu {
             display: flex;
-            flex-direction: row;
-            justify-content: center;
             margin-top: -40px;
             & .title_menu {
                 display: flex;
                 flex-direction: row;
+
                 & h2 {
                     align-items: left;
                     font-family: Shrikhand;
@@ -313,8 +322,11 @@ section {
             }
             .first, .second, .third {
                 display: flex;
-                flex-direction: column;
-                width: 30%;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                .plat {
+                    width: 30em;
+                }
             }
         }
     }

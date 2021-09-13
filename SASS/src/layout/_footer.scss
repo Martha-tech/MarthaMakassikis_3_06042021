@@ -22,8 +22,11 @@ footer {
     }
 }
 
+//affichage tablette
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     footer {
+        //width: 40em;
+        //margin: auto;
         & .logo {
             display: flex;
             justify-content: center;
@@ -44,8 +47,12 @@ footer {
         }
     }
     }
+
+//affichage ordinateur    
 @media screen and (min-width: 1001px) {
 footer {
+    //width: 70em;
+    //margin: auto;
     & .logo {
         display: flex;
         justify-content: center;
