@@ -4,8 +4,6 @@
 @import "scss/solid.scss";
 
 @import "./utils/variables";
-//@import "./utils/mixins";
-//@import "./utils/functions";
 @import "./layout/header-menu";
 @import "./layout/nav";
 @import "./layout/footer";
@@ -13,9 +11,9 @@
 //animation : coeur qui se remplit
 .heart {
     background-image: url("../../images/svg/heart-thin.svg");
+    background-repeat: no-repeat;
     width: 1.5em;
     height: 1.5em;
-    background-repeat: no-repeat;
     margin: 16px;
     &:hover {
         background-image: url("../../images/svg/heart.svg");
@@ -177,6 +175,19 @@ section {
 
 .plat {
     overflow: hidden;
+    .title {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .precision {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+}
+
+.plat {
     &:hover {
         cursor: pointer;
         .title {
@@ -209,28 +220,6 @@ section {
                 }
             }
         }
-    }
-}
-.plat {
-    .title {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    .precision {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-}
-
-@keyframes text_choose-appear {
-    from {
-        transform: scale(0);   
-    }
-    to {
-        transform: scale(1);
-        transition: transform 1s ease 0.2s;
     }
 }
 

@@ -116,7 +116,6 @@ body {
         justify-content: center;
         align-items: center;
         & button {
-            //width: 60%;
             color: $neutral-color-100;
             background-image: linear-gradient($secondary-color, $primary-color);
             border-radius: 5em;  
@@ -198,11 +197,13 @@ body {
                 justify-content: center;
                 & .element {
                     //width: 80%;
-                    width: 25em;
+                    //width: 25em;
+                    width: 21em;
                     background-color: $neutral-color-100;
                     border-radius: 1.5em;
                     height: 20em;
-                    margin: 1em 1em 2em 1em; //ajout
+                    //margin: 1em 1em 2em 1em; //ajout
+                    margin: 1em 0em;
                     box-shadow: 0.3em 0.3em 0.15em $neutral-color-300;
                     & a {
                         text-decoration: none;
