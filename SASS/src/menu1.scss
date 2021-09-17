@@ -5,7 +5,6 @@
 
 @import "./utils/variables";
 @import "./layout/header-menu";
-@import "./layout/nav";
 @import "./layout/footer";
 
 //animation : coeur qui se remplit
@@ -59,7 +58,6 @@ section {
             & h2 {
                 align-items: left;
                 font-family: Shrikhand;
-                //margin-left: 0.5em;
                 margin-right: 5em;
             }
             & .heart {
@@ -139,11 +137,9 @@ section {
 
 @keyframes apparition {
     from {
-        bottom: 400px;
         opacity: 0;
     }
     to {
-        bottom: 100px;
         opacity: 1;
     }
 }
@@ -241,15 +237,13 @@ section {
 }
 
 .price {
-    padding: 0 0.5em; //ajout
+    padding: 0 0.5em;
 }
 
 // Design adapté aux différentes tailles d'écran
 //tablettes
 @media screen and (min-width: 601px) and (max-width: 1000px) {
     section {
-        //width: 40em;
-        //margin: auto;
         .image {
             height: 15em;
             object-fit: cover;
@@ -275,7 +269,7 @@ section {
                 width: 100%;
             }
             .plat {
-                width: 30em; //modifié
+                width: 30em;
                 margin: 0.5em auto;
             }
         }
@@ -285,8 +279,6 @@ section {
 //ordinateurs
 @media all and (min-width: 1001px) {
     section {
-        //width: 70em;
-        //margin: auto;
         .image {
             height: 15em;
             object-fit: cover;
@@ -312,9 +304,10 @@ section {
             .first, .second, .third {
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: flex-start;
+                justify-content: space-around;
+                width: 100%;
                 .plat {
-                    width: 30em;
+                    width: 30%;
                 }
             }
         }
