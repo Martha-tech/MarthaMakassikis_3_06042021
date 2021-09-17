@@ -52,7 +52,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: scale (3, 0.5);
+    transform: scale(3, 0.5);
     animation: disappearance 1s 2s forwards;
     &:hover {
         color: $neutral-color-400;

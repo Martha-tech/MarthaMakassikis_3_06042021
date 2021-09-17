@@ -6211,7 +6211,7 @@ section .menu .title_menu {
   flex-direction: row;
 }
 section .menu .title_menu h2 {
-  align-items: left;
+  align-items: start;
   font-family: Shrikhand;
   margin-right: 5em;
 }
@@ -6409,7 +6409,7 @@ section button {
     flex-direction: row;
   }
   section .menu .title_menu h2 {
-    align-items: left;
+    align-items: start;
     font-family: Shrikhand;
     margin-left: 0.5em;
     margin-right: 5em;
@@ -6440,7 +6440,7 @@ section button {
     flex-direction: row;
   }
   section .menu .title_menu h2 {
-    align-items: left;
+    align-items: start;
     font-family: Shrikhand;
     margin-left: 0.5em;
     margin-right: 5em;
