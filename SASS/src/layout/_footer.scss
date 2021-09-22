@@ -1,6 +1,6 @@
 
 footer {
-    background: $neutral-color-500;
+    background-color: lighten($neutral-color-500, 20%);
     color: $neutral-color-100;
     padding: 1em 2em 1em 2em;
     & .logo {
